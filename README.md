@@ -23,8 +23,8 @@ Proyek ini dibuat dengan intensi khusus untuk mempelajari bagaimana **Attention 
 
 ### Model Hybrid: CNN-BiLSTM with Attention
 Model ini menggabungkan tiga komponen utama:
-1. **CNN (1D Convolutional)**: Bertugas mengekstrak fitur lokal dan pola teknis pada rentang waktu pendek.
-2. **BiLSTM (Bidirectional LSTM)**: Menangkap ketergantungan urutan waktu secara dua arah (masa lalu ke masa depan dan sebaliknya).
+1. **CNN (1D Convolutional)**: Bertugas mengekstrak fitur lokal dan pola teknis pada time series.
+2. **BiLSTM (Bidirectional LSTM)**: Menangkap ketergantungan atau dependensi temporal jangka panjang dalam data.
 3. **Attention Layer**: Mekanisme yang memberikan bobot pada setiap *time step* untuk menentukan informasi mana yang paling relevan bagi prediksi harga esok hari.
 
 **Varian Attention yang Diimplementasikan:**
