@@ -3,7 +3,7 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![Lightning](https://img.shields.io/badge/-Lightning-792ee5?logo=pytorch-lightning&logoColor=white)](https://www.pytorchlightning.ai/)
 
-Proyek ini adalah studi mendalam mengenai penerapan **Attention Mechanism** pada peramalan data deret waktu (*Time-series Forecasting*) menggunakan harga penutupan saham BBCA. Fokus utama proyek ini adalah transisi dari riset eksperimental di Jupyter Notebook ke struktur kode produksi yang modular. Dan sekalian belajar pytorch
+Proyek ini adalah studi mendalam mengenai penerapan **Attention Mechanism** pada peramalan data deret waktu (*Time-series Forecasting*) menggunakan harga penutupan saham BBCA. Fokus utama proyek ini adalah transisi dari riset eksperimental di Jupyter Notebook ke struktur kode produksi yang modular.
 
 ---
 
