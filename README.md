@@ -11,7 +11,7 @@ Proyek ini adalah studi mendalam mengenai penerapan **Attention Mechanism** pada
 - `src/`: Modul inti untuk *data loading*, *scaling*, dan *sequencing* (Modular).
 - `models/`: Definisi arsitektur model PyTorch (`model_build.py`) dan penyimpanan bobot `.pth`.
 - `data/`: Dataset historis saham BBCA (CSV).
-- `experiments/`: Kumpulan file `.ipynb` yang digunakan untuk riset awal dan *prototyping*.
+- `notebooks/`: Kumpulan file `.ipynb` yang digunakan untuk riset awal dan *prototyping*.
 - `train.py`: Script utama untuk melatih model dengan integrasi PyTorch Lightning.
 - `predict.py`: Script untuk evaluasi, *inference*, dan visualisasi hasil prediksi.
 - `config.json`: Pusat pengaturan parameter (Hyperparameters, Paths, & Device).
@@ -40,6 +40,6 @@ Setiap model dilatih menggunakan metode **Grid Search** untuk menemukan hyperpar
    $$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
 
 2. **Root Mean Squared Error (RMSE)**:
-   $$RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
+   $$RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}$$
 
 ---
