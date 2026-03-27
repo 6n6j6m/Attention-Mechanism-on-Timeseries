@@ -1,0 +1,13 @@
+{
+    "data_path": "data/bbca_closing_price_22_to_23.csv",
+    "model_path": "models/CNN_BiLSTMWithAttention_best_model.pth",
+    "target_col": "Close",
+    "seq_length": 30,
+    "batch_size": 64,
+    "input_dim": 1,
+    "output_dim": 1,
+    "num_filters": 32,
+    "hidden_dim": 100,
+    "dropout": 0.3,
+    "learning_rate": 0.001
+}

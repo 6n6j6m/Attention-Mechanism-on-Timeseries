@@ -1,0 +1,27 @@
+name: ml_env
+channels:
+  - pytorch
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - openpyxl
+  - pytorch
+  - torchvision
+  - torchaudio
+  - statsmodels
+  - opencv
+  - tqdm
+  - ipykernel
+  - pip
+  - pip:
+    - ultralytics     
+    - transformers    
+    - evaluate
+    - datasets
+    - albumentations

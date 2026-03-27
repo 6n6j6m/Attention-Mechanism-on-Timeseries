@@ -1,0 +1,20 @@
+name: tf_ml_env
+channels:
+  - apple
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - pandas
+  - matplotlib
+  - scikit-learn
+  - jupyterlab
+  - ipywidgets
+  - tqdm
+  - pip:
+    - tensorflow        # Versi terbaru sudah mendukung macOS secara native
+    - tensorflow-metal  # WAJIB untuk akselerasi GPU pada Mac M1-M5
+    - yfinance          # Untuk data saham BBCA Anda
+    - transformers      # Untuk eksperimen NLP/Attention

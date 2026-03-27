@@ -1,0 +1,88 @@
+BiLSTM:
+  best_params:
+    batch_size: 15
+    dropout: 0.3
+    epochs: 25
+    hidden_dim: 100
+    learning_rate: 0.01
+    num_filters: null
+  val_mse_rescaled: 38548.640625
+  val_mse_scaled: 0.007601055069244467
+  val_rmse_rescaled: 196.3380773691135
+BiLSTMWithAttention:
+  best_params:
+    batch_size: 30
+    dropout: 0.2
+    epochs: 50
+    hidden_dim: 50
+    learning_rate: 0.01
+    num_filters: null
+  val_mse_rescaled: 6313.1376953125
+  val_mse_scaled: 0.0012448293855413795
+  val_rmse_rescaled: 79.45525593258448
+BiLSTMWithMultiHeadAttention:
+  best_params:
+    batch_size: 15
+    dropout: 0.3
+    epochs: 50
+    hidden_dim: 150
+    learning_rate: 0.001
+    num_filters: null
+  val_mse_rescaled: 60021.1640625
+  val_mse_scaled: 0.00432857233681716
+  val_rmse_rescaled: 244.99217143104798
+CNN:
+  best_params:
+    batch_size: 15
+    dropout: 0.3
+    epochs: 25
+    hidden_dim: null
+    learning_rate: 0.01
+    num_filters: 32
+  val_mse_rescaled: 7820.2666015625
+  val_mse_scaled: 0.0015420045965583995
+  val_rmse_rescaled: 88.43227126769108
+CNN_BiLSTM:
+  best_params:
+    batch_size: 15
+    dropout: 0.3
+    epochs: 50
+    hidden_dim: 150
+    learning_rate: 0.01
+    num_filters: 64
+  val_mse_rescaled: 15690.736328125
+  val_mse_scaled: 0.0030939131684135646
+  val_rmse_rescaled: 125.26266933178854
+CNN_BiLSTMWithAttention:
+  best_params:
+    batch_size: 15
+    dropout: 0.3
+    epochs: 50
+    hidden_dim: 100
+    learning_rate: 0.001
+    num_filters: 32
+  val_mse_rescaled: 6138.1142578125
+  val_mse_scaled: 0.0012103199769626372
+  val_rmse_rescaled: 78.34611833277064
+CNNwithAttention:
+  best_params:
+    batch_size: 15
+    dropout: 0.3
+    epochs: 50
+    hidden_dim: null
+    learning_rate: 0.001
+    num_filters: 128
+  val_mse_rescaled: 6031.333984375
+  val_mse_scaled: 0.0011892642069142312
+  val_rmse_rescaled: 77.6616635437009
+LSTMWithAttention:
+  best_params:
+    batch_size: 30
+    dropout: 0.3
+    epochs: 50
+    hidden_dim: 100
+    learning_rate: 0.01
+    num_filters: null
+  val_mse_rescaled: 26052.720703125
+  val_mse_scaled: 0.005137104773893952
+  val_rmse_rescaled: 161.40855213750294

@@ -1,0 +1,31 @@
+# --- Python & Environment ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ml_env/
+.env
+.venv
+
+# --- Mac System Files ---
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# --- Training Logs ---
+lightning_logs/
+logs/
+*.log
+events.out.tfevents.*
+
+# --- IDE Settings ---
+.vscode/
+.idea/
+*.swp
+*.swo
