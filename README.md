@@ -10,4 +10,4 @@ Proyek ini menggunakan arsitektur hybrid **CNN-BiLSTM with Attention** untuk mem
 - `train.py`: Script untuk melatih model.
 - `predict.py`: Script untuk evaluasi & visualisasi hasil.
 - `config.json`: Pusat pengaturan parameter & path.
-- ipynb : Tempat eksperimen
+- `ipynb` : Tempat eksperimen
