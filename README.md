@@ -43,3 +43,19 @@ Setiap model dilatih menggunakan metode **Grid Search** untuk menemukan hyperpar
    $$RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}$$
 
 ---
+
+## 💡 Struggle & Findings
+
+Dalam proses pengerjaan proyek ini, terdapat beberapa tantangan dan temuan penting yang menjadi bahan pembelajaran utama:
+
+### 1. Data Sparsity & Continuity
+Salah satu tantangan terbesar adalah kondisi dataset yang memiliki banyak **data kosong (missing values)**. Hal ini menyebabkan urutan waktu tidak sepenuhnya kontinu, yang secara teoritis kurang memenuhi syarat ideal konsep *time-series*.
+
+### 2. Pentingnya Analisis Statistik (EDA)
+Saya menyadari adanya keterbatasan dalam proyek ini karena **melewatkan proses EDA (Exploratory Data Analysis)** serta analisis statistik *time-series* yang mendalam (seperti uji stasioneritas, musiman, atau autokorelasi). Hal ini mempengaruhi bagaimana hasil yang dihasilkan, karena jika hanya mengandalkan kompleksitas model tanpa memahami konteks dari data maka hasil yang diperoleh tidak akan optimal.
+
+### 3. Attention Mechanism
+Meskipun menghadapi tantangan data, penggunaan **Attention Mechanism** terbukti sangat membantu model dalam memahami fitur temporal. Attention Mechanism bertindak sebagai filter dinamis yang memberikan "perhatian khusus" pada langkah waktu tertentu yang memiliki signifikansi lebih tinggi terhadap target prediksi.
+
+### 4. Konsep Q, K, V
+Saya menemukan bahwa implementasi teknis mekanisme atensi mungkin akan berbeda secara signifikan pada domain yang lain (seperti Computer Vision atau NLP). Namun, konsep inti dari **Query (Q), Key (K), dan Value (V)** tetaplah terlibat dan menjadi dasar yang menghubungkan berbagai variasi arsitektur attention tersebut.
