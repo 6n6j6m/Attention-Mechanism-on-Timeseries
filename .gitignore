@@ -10,14 +10,6 @@ ml_env/
 .env
 .venv
 
-# --- Mac System Files ---
-.DS_Store
-.AppleDouble
-.LSOverride
-._*
-.Spotlight-V100
-.Trashes
-
 # --- Training Logs ---
 lightning_logs/
 logs/
