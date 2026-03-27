@@ -1,5 +1,5 @@
 # 📈 ProjectIndividu: Stock Price Prediction (BBCA)
-Proyek ini menggunakan arsitektur hybrid **CNN-BiLSTM with Attention** untuk memprediksi harga penutupan saham BBCA. Dioptimalkan khusus untuk menjalankan akselerasi **MPS (Metal Performance Shaders)** pada chip Apple Silicon (M5).
+Proyek ini menggunakan arsitektur hybrid **CNN-BiLSTM with Attention** untuk memprediksi harga penutupan saham BBCA.
 
 ---
 
