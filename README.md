@@ -1,13 +1,45 @@
 # 📈 ProjectIndividu: Stock Price Prediction (BBCA)
-Proyek ini menggunakan arsitektur hybrid **CNN-BiLSTM with Attention** untuk memprediksi harga penutupan saham BBCA.
+[![Python 3.11](https://img.shields.io/badge/python-3.11-blue.svg)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![Lightning](https://img.shields.io/badge/-Lightning-792ee5?logo=pytorch-lightning&logoColor=white)](https://www.pytorchlightning.ai/)
+
+Proyek ini adalah studi mendalam mengenai penerapan **Attention Mechanism** pada peramalan data deret waktu (*Time-series Forecasting*) menggunakan harga penutupan saham BBCA. Fokus utama proyek ini adalah transisi dari riset eksperimental di Jupyter Notebook ke struktur kode produksi yang modular.
 
 ---
 
 ## 📂 Struktur Folder
-- `src/`: Modul inti untuk data loading & preprocessing.
-- `models/`: Arsitektur model PyTorch & penyimpanan bobot `.pth`.
-- `data/`: Dataset historis saham (CSV).
-- `train.py`: Script untuk melatih model.
-- `predict.py`: Script untuk evaluasi & visualisasi hasil.
-- `config.json`: Pusat pengaturan parameter & path.
-- `ipynb` : Tempat eksperimen
+- `src/`: Modul inti untuk *data loading*, *scaling*, dan *sequencing* (Modular).
+- `models/`: Definisi arsitektur model PyTorch (`model_build.py`) dan penyimpanan bobot `.pth`.
+- `data/`: Dataset historis saham BBCA (CSV).
+- `experiments/`: Kumpulan file `.ipynb` yang digunakan untuk riset awal dan *prototyping*.
+- `train.py`: Script utama untuk melatih model dengan integrasi PyTorch Lightning.
+- `predict.py`: Script untuk evaluasi, *inference*, dan visualisasi hasil prediksi.
+- `config.json`: Pusat pengaturan parameter (Hyperparameters, Paths, & Device).
+
+---
+
+## 🧠 Konsep & Arsitektur
+Proyek ini dibuat dengan intensi khusus untuk mempelajari bagaimana **Attention Mechanism** dapat meningkatkan kemampuan model dalam mengingat konteks jangka panjang tanpa kehilangan fokus pada volatilitas jangka pendek.
+
+### Model Hybrid: CNN-BiLSTM with Attention
+Model ini menggabungkan tiga komponen utama:
+1. **CNN (1D Convolutional)**: Bertugas mengekstrak fitur lokal dan pola teknis pada rentang waktu pendek.
+2. **BiLSTM (Bidirectional LSTM)**: Menangkap ketergantungan urutan waktu secara dua arah (masa lalu ke masa depan dan sebaliknya).
+3. **Attention Layer**: Mekanisme yang memberikan bobot pada setiap *time step* untuk menentukan informasi mana yang paling relevan bagi prediksi harga esok hari.
+
+**Varian Attention yang Diimplementasikan:**
+- **Single-head Attention (Self Attention)**: Fokus pada satu aspek hubungan antar waktu.
+- **Multi-head Attention**: Memungkinkan model untuk mempelajari berbagai proyeksi hubungan temporal secara paralel.
+
+---
+
+## 📊 Evaluasi Metrik
+Setiap model dilatih menggunakan metode **Grid Search** untuk menemukan hyperparameter paling optimal. Kinerja model diukur menggunakan:
+
+1. **Mean Squared Error (MSE)**:
+   $$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
+
+2. **Root Mean Squared Error (RMSE)**:
+   $$RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
+
+---
