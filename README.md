@@ -3,59 +3,63 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![Lightning](https://img.shields.io/badge/-Lightning-792ee5?logo=pytorch-lightning&logoColor=white)](https://www.pytorchlightning.ai/)
 
-Proyek ini adalah studi mendalam mengenai penerapan **Attention Mechanism** pada peramalan data deret waktu (*Time-series Forecasting*) menggunakan harga penutupan saham BBCA. Fokus utama proyek ini adalah transisi dari riset eksperimental di Jupyter Notebook ke struktur kode produksi yang modular.
+This project is an in-depth study on applying the **Attention Mechanism** to time-series forecasting using BBCA stock closing prices. The primary objective is to transition from experimental research in Jupyter Notebooks to a **modular, production-ready code structure**.
 
 ---
 
-## 📂 Struktur Folder
-- `src/`: Modul inti untuk *data loading*, *scaling*, dan *sequencing* (Modular).
-- `models/`: Definisi arsitektur model PyTorch (`model_build.py`) dan penyimpanan bobot `.pth`.
-- `data/`: Dataset historis saham BBCA (CSV).
-- `notebooks/`: Kumpulan file `.ipynb` yang digunakan untuk riset awal dan *prototyping*.
-- `train.py`: Script utama untuk melatih model dengan integrasi PyTorch Lightning.
-- `predict.py`: Script untuk evaluasi, *inference*, dan visualisasi hasil prediksi.
-- `config.json`: Pusat pengaturan parameter (Hyperparameters, Paths, & Device).
+## 📂 Project Structure
+- `src/`: Core modules for data loading, scaling, and sequencing (Modular).
+- `models/`: PyTorch model architecture definitions (`model_build.py`) and `.pth` weight storage.
+- `data/`: Historical BBCA stock price dataset (CSV).
+- `notebooks/`: Collection of `.ipynb` files used for initial research and prototyping.
+- `train.py`: Main script for model training integrated with PyTorch Lightning.
+- `predict.py`: Script for evaluation, inference, and result visualization.
+- `config.json`: Centralized configuration for hyperparameters, paths, and device settings.
 
 ---
 
-## 🧠 Konsep & Arsitektur
-Proyek ini dibuat dengan intensi khusus untuk mempelajari bagaimana **Attention Mechanism** dapat meningkatkan kemampuan model dalam mengingat konteks jangka panjang tanpa kehilangan fokus pada volatilitas jangka pendek.
+## 🧠 Concept & Architecture
+The project explores how a hybrid architecture can improve a model's ability to remember long-term context without losing focus on short-term volatility.
 
-### Model Hybrid: CNN-BiLSTM with Attention
-Model ini menggabungkan tiga komponen utama:
-1. **CNN (1D Convolutional)**: Bertugas mengekstrak fitur lokal dan pola teknis pada time series.
-2. **BiLSTM (Bidirectional LSTM)**: Menangkap ketergantungan atau dependensi temporal jangka panjang dalam data.
-3. **Attention Layer**: Mekanisme yang memberikan bobot pada setiap *time step* untuk menentukan informasi mana yang paling relevan bagi prediksi harga esok hari.
-
-**Varian Attention yang Diimplementasikan:**
-- **Single-head Attention (Self Attention)**: Fokus pada satu aspek hubungan antar waktu.
-- **Multi-head Attention**: Memungkinkan model untuk mempelajari berbagai proyeksi hubungan temporal secara paralel.
+### Hybrid Model: CNN-BiLSTM with Attention
+The model integrates three main components to capture hierarchical spatial-temporal features:
+1.  **CNN (1D Convolutional)**: Used to extract local or spatial patterns within stock price movements.
+2.  **BiLSTM (Bidirectional LSTM)**: Captures long-term temporal dependencies by modeling relationships in both forward and backward directions.
+3.  **Attention Layer**: A mechanism that dynamically assigns weights to each time step, allowing the model to focus on the most relevant temporal features for prediction.
 
 ---
 
-## 📊 Evaluasi Metrik
-Setiap model dilatih menggunakan metode **Grid Search** untuk menemukan hyperparameter paling optimal. Kinerja model diukur menggunakan:
+## 📊 Evaluation Metrics
+Models are trained using **Grid Search** to identify optimal hyperparameters. Performance is measured using:
 
-1. **Mean Squared Error (MSE)**:
-   $$MSE = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
+1.  **Mean Squared Error (MSE)**:
+    $$MSE = \frac{1}{N} \sum_{i=1}^{N} (\hat{y}_i - y_i)^2$$
 
-2. **Root Mean Squared Error (RMSE)**:
-   $$RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}$$
+2.  **Root Mean Squared Error (RMSE)**:
+    $$RMSE = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2}$$
 
 ---
 
-## 💡 Struggle & Findings
+## 💡 Struggles & Findings
 
-Dalam proses pengerjaan proyek ini, terdapat beberapa tantangan dan temuan penting yang menjadi bahan pembelajaran utama:
+During the development process, several challenges provided significant learning opportunities:
 
 ### 1. Data Sparsity & Continuity
-Salah satu tantangan terbesar adalah kondisi dataset yang memiliki banyak **data kosong (missing values)**. Hal ini menyebabkan urutan waktu tidak sepenuhnya kontinu, yang secara teoritis kurang memenuhi syarat ideal konsep *time-series*.
+A major hurdle was the presence of **missing values** within the dataset. This resulted in a non-continuous time sequence, which theoretically deviates from ideal time-series concepts. This underscores the importance of data characteristics, as model performance is heavily influenced by the underlying structure of the asset.
 
-### 2. Pentingnya Analisis Statistik (EDA)
-Saya menyadari adanya keterbatasan dalam proyek ini karena **melewatkan proses EDA (Exploratory Data Analysis)** serta analisis statistik *time-series* yang mendalam (seperti uji stasioneritas, musiman, atau autokorelasi). Hal ini mempengaruhi bagaimana hasil yang dihasilkan, karena jika hanya mengandalkan kompleksitas model tanpa memahami konteks dari data maka hasil yang diperoleh tidak akan optimal.
+### 2. The Critical Role of Statistical Analysis (EDA)
+I recognized a limitation in this project: **skipping the deep Exploratory Data Analysis (EDA)** and time-series statistical testing (such as stationarity, seasonality, or autocorrelation tests). Relying solely on model complexity (like Attention) without fully understanding the data context prevents the model from reaching its optimal potential.
 
-### 3. Attention Mechanism
-Meskipun menghadapi tantangan data, penggunaan **Attention Mechanism** terbukti sangat membantu model dalam memahami fitur temporal. Attention Mechanism bertindak sebagai filter dinamis yang memberikan "perhatian khusus" pada langkah waktu tertentu yang memiliki signifikansi lebih tinggi terhadap target prediksi.
+### 3. Effectiveness of the Attention Mechanism
+Despite the data challenges, the **Attention Mechanism** proved highly effective in helping the model interpret temporal features. It acts as a dynamic filter, enabling the model to focus on specific time steps with higher significance relative to the target prediction.
 
-### 4. Konsep Q, K, V
-Saya menemukan bahwa implementasi teknis mekanisme atensi mungkin akan berbeda secara signifikan pada domain yang lain (seperti Computer Vision atau NLP). Namun, konsep inti dari **Query (Q), Key (K), dan Value (V)** tetaplah terlibat dan menjadi dasar yang menghubungkan berbagai variasi arsitektur attention tersebut.
+### 4. The Concept of Q, K, V
+While technical implementations of attention vary across domains, the core concepts of **Query (Q), Key (K), and Value (V)** remain the fundamental bridge connecting various attention-based architectures.
+
+---
+
+## 📝 Future Work
+- **Monitoring Platform**: Potentially developing a web application to monitor real-time stock predictions.
+- **Advanced Architectures**: Comparing results against Transformer-based approaches or novel attention variants.
+
+---
