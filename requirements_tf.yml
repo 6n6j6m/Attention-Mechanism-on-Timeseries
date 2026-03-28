@@ -14,7 +14,7 @@ dependencies:
   - ipywidgets
   - tqdm
   - pip:
-    - tensorflow        # Versi terbaru sudah mendukung macOS secara native
-    - tensorflow-metal  # WAJIB untuk akselerasi GPU pada Mac M1-M5
-    - yfinance          # Untuk data saham BBCA Anda
-    - transformers      # Untuk eksperimen NLP/Attention
+    - tensorflow        
+    - tensorflow-metal  # for Mac
+    - yfinance          
+    - transformers      

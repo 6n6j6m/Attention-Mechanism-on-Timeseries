@@ -10,8 +10,7 @@ class TimeSeriesDataset(Dataset):
     Mengubah data yang sudah di-sequence menjadi tensor PyTorch.
     """
     def __init__(self, x, y):
-        # Pastikan data dalam format float32 untuk stabilitas di MPS (M5)
-        self.x = torch.tensor(x, dtype=torch.float32)
+        self.x = torch.tensor(x, dtype=torch.float32) # Pastikan x memiliki shape (batch_size, seq_length, num_features)
         self.y = torch.tensor(y, dtype=torch.float32)
 
     def __len__(self):
