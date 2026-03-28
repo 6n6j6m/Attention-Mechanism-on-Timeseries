@@ -58,8 +58,7 @@ def get_dataloaders(file_path, target_col, seq_length, batch_size, train_split=0
     train_ds = TimeSeriesDataset(X_train, y_train)
     test_ds = TimeSeriesDataset(X_test, y_test)
 
-    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True)
-    # Shuffle=False untuk test agar urutan waktu terjaga saat plotting
+    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=False)  # Tidak shuffle untuk data time series
     test_loader = DataLoader(test_ds, batch_size=batch_size, shuffle=False)
 
     return train_loader, test_loader, scaler, y_test
